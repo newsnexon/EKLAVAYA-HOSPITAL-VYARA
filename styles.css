@@ -1,0 +1,152 @@
+/* Eklavya Multispeciality Hospital - Custom Stylesheet */
+:root {
+  --primary-navy: #0b2545;
+  --primary-blue: #0284c7;
+  --primary-blue-dark: #0369a1;
+  --primary-teal: #0d9488;
+  --emergency-red: #dc2626;
+  --emergency-red-dark: #b91c1c;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --bg-soft: #f8fafc;
+  --card-border: #e2e8f0;
+}
+
+/* Base Adjustments */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: var(--text-main);
+  background-color: #ffffff;
+}
+
+/* Emergency Live Pulse */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(220, 38, 38, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+  }
+}
+
+.pulse-emergency {
+  animation: pulse-ring 2s infinite cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.pulse-opd-open {
+  animation: pulse-green 2s infinite ease-in-out;
+}
+
+/* Glassmorphism Header */
+.header-glass {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* Card Hover Effects */
+.service-card {
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(11, 37, 69, 0.08), 0 4px 8px -2px rgba(11, 37, 69, 0.04);
+}
+
+/* Tab active state */
+.dept-tab.active {
+  background-color: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Toast Container */
+#toast-notification {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+/* Accessibility Badge */
+.accessibility-pill {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+/* Insurance Network Badges */
+.insurance-logo-card {
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.insurance-logo-card:hover {
+  transform: translateY(-2px);
+  border-color: #0284c7;
+}
+
+/* Hero Gradient Overlay */
+.hero-gradient {
+  background: radial-gradient(circle at 85% 20%, rgba(2, 132, 199, 0.12) 0%, transparent 60%),
+              radial-gradient(circle at 15% 80%, rgba(13, 148, 136, 0.08) 0%, transparent 50%),
+              linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+/* Print Styles */
+@media print {
+  .no-print, header, footer, #emergency-floating-bar, #bookModal {
+    display: none !important;
+  }
+  
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+}
